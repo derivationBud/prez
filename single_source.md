@@ -26,8 +26,7 @@
 | Data parsing |
 | Data validation |
 | Data injection | 
-
-* This training gives some background on these items
+| Data management |
 
 vv
 #Quizz
@@ -47,7 +46,7 @@ vv
 vv
 #Solutions
 
-1. Colorize in red the broken seats
+1. Colorize in red
  * How do you code *broken* and *bad view* ? red + bold ?
 1. Insert a new row below every row
  * All parsers will need an update
@@ -73,8 +72,8 @@ vv
 
 * **Cons**
   * No separation of data and style, <span style="color:blue">male</span> & <span style="color:red">female</span>  ?
-  * Access by coordinates can break on structural changes.
-  * No built-in data hierachy.
+  * No hierarchical access : coordinates only.
+  * No built-in data mapping.
   * Reversed proprietary format.
   * Not version control friendly ( no easy diff ).
 * **Pros** 
@@ -133,7 +132,7 @@ vv
     }
   }
 ```
-* **Pro** Supports ordered arrays, and simple types: numbers
+* **Pro** Supports mappings, ordered arrays, and simple types: numbers
 * **Con** Looks like python but is not. Example: `true` vs `True`, trailing commas
 * **Ref** @ https://tools.ietf.org/html/rfc7159
 * **Try** @ http://json.parser.online.fr/
@@ -191,8 +190,9 @@ vv
 |                |      XLS     |      XML     |     JSON     |     YAML     |
 |----------------|--------------|--------------|--------------|--------------|
 | Nesting        | &#x2a2f;     | **&#x2713;** | **&#x2713;** | **&#x2713;** |
-| Ordering       | **&#x2013;** | &#x2a2f;     | **&#x2713;** | **&#x2713;** |
 | Strings        | **&#x2713;** | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Mappings       |  &#x2a2f;    | **&#x2713;** | **&#x2713;** | **&#x2713;** |
+| Ordering       | **&#x2013;** | &#x2a2f;     | **&#x2713;** | **&#x2713;** |
 | Numbers        | **&#x2713;** | &#x2a2f;     | **&#x2713;** | **&#x2713;** |
 | Hexadecimal    | **&#x2713;** | &#x2a2f;     | &#x2a2f;     | **&#x2713;** |
 | References     | **&#x2713;** | &#x2a2f;     | &#x2a2f;     | **&#x2713;** |
