@@ -1,1 +1,1 @@
-/labs/* text/plain
+/labs/*/*.py text/plain
