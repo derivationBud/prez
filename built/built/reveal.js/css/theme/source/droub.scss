@@ -1,0 +1,97 @@
+/**
+ * Black theme for reveal.js. This is the opposite of the 'white' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+// Include theme-specific fonts
+@import url(../../lib/webfontkit/stylesheet.css);
+
+// Override theme settings (see ../template/settings.scss)
+$palette1: #ffac00;
+$palette2: #191919;
+
+$backgroundColor: $palette2;
+
+$mainColor: #b99b6b;
+$headingColor: $palette1;
+
+$mainFontSize: 32px;
+$mainFont: 'alegreya_sansregular', Helvetica, sans-serif;
+$headingFont: 'sf_cartoonist_handregular', Helvetica, sans-serif;
+$codeFont: 'cousineregular';
+$headingTextShadow: none;
+$headingLetterSpacing: 0.02em;
+$headingTextTransform: none;
+$headingFontWeight: 600;
+$linkColor: #42affa;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-light-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #222;
+	}
+}
+
+.reveal .slides > section { text-align:left; }
+.reveal .slides > section > section { text-align:left; }
+.reveal code {
+    color: $palette1;
+    font-size: 80%;
+    }
+html .reveal pre {
+    line-height: 1.4em;
+    color: $palette1; }
+html .reveal pre > code {
+    font-size: 100%;
+    }
+.reveal em { color: $palette1; }
+.strike {
+    text-decoration: line-through; }
+.scale150 {
+    font-size: 150%; }
+.scale200 {
+    font-size: 200%; }
+.red {
+    color: red;
+    font-weight: bold;
+    }
+div.frame {
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 0.4em;
+    padding-right: 0.4em; }
+.reveal .admonitionblock * {
+    border-width: 0;}
+.reveal table.tableblock {
+    border-width: 0;}
+.reveal th.tableblock  {
+    border: 1px solid $palette2;}
+.reveal td.tableblock  {
+    border: 1px solid $palette2;}
+.reveal td > p {
+    line-height: 90%;
+    margin: 0; }
+.reveal th {
+    background: rgba(160, 66, 160, 0.1); }
+.reveal tr:nth-child(even) {
+    background: rgba(160, 66, 160, 0.1); }
+.reveal pre code {
+    border-style: solid;
+    border-color: #6f2c00;
+    border-width: 1px; }
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
