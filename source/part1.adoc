@@ -239,7 +239,7 @@ endif::[]
 
 Use square brackets...
 
-[source, python]
+[source,python]
 ----
 mylist = ['AB','Bob',23,0x34,"Z"]
 team   = ['Rocket',
@@ -525,9 +525,10 @@ endif::[]
 
 Display the phone book, sorted alphabetically.
 
-```
+[source,python]
+----
 phonebook = {"Bob":1234,"Alice":3456,"Charly":4567}
-```
+----
 
 ifdef::answers[]
 === Answer 2
