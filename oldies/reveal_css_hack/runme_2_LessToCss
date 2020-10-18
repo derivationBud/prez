@@ -1,0 +1,6 @@
+#!/bin/bash
+for theme in default serif simple solarized moon sky beige blood night
+do
+  echo $theme
+  lessc css/theme/source/$theme.less > css/theme/$theme.css
+done

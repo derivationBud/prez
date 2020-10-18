@@ -1,0 +1,13 @@
+:revealjsdir: reveal.js
+:source-highlighter: highlightjs
+:imagesdir: images
+:title-slide-background-image: snake.webp
+:revealjs_theme: droub
+:revealjs_slideNumber: True
+:revealjs_hash: True
+
+++++
+<style>
+.reveal h1 { margin-top: 12%; }
+</style>
+++++

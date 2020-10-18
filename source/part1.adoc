@@ -1,0 +1,948 @@
+= python
+:revealjsdir: reveal.js
+:source-highlighter: highlightjs
+:imagesdir: images
+:title-slide-background-image: snake.webp
+:revealjs_theme: droub
+:revealjs_slideNumber: True
+:revealjs_hash: True
+:icons: font
+
+++++
+<style>
+.reveal h1 { margin-top: 12%; color: #ffac00; }
+</style>
+++++
+
+Coding essentials
+
+by _David Roubinet_
+
+== !
+
+What is python?
+[frame]
+* Coding language created by _Guido Van Rossum_
+* Quoting _Monty Python_ is a healthy habit
+* Quoting _Star Wars_ is borderline, but OK too
+
+Why ?
+[frame]
+* Easy on the *developer*, not on the [.strike]#machine#
+
+Used ?
+[frame]
+* Google, Youtube, Academics, Labs
+
+== Setup
+
+* Version = Latest **v3.x**
+* Recommended install
+[frame]
+** Linux & Mac : python comes preinstalled
+** iPad: `pythonista` on App Store ( 10$ )
+** Windows: `choco install miniconda3`
+** On-line: https://www.programiz.com &rarr; [.background_blue]#Run Python Online#
+* Configure your text-editor / IDE
+[frame]
+** **no TAB &rarr; emulated with 4 spaces**
+
+=== Setup cont'd
+
+A *text-editor* is a tool necessary to write and edit programs. The text editor
+is independent of the programming language, and independent of the engine
+that will execute the program once saved.
+If you don't have one yet please install any of these suggestions:
+
+* Atom @ https://atom.io/
+* SublimeText3 @ https://www.sublimetext.com/3
+
+Both editors give the same experience on Windows, Linux, and Mac.
+
+== Interactive Shell
+
+`python` with *no argument* is a **console** ...
+
+[source,python]
+----
+Python 3.7.9 (default, Aug 31 2020, 17:10:11)
+[GCC 4.7.3] on linux2
+Type "help", "copyright", "credits" or "license" for more info.
+>>> print 1+2
+3
+>>> exit()
+----
+
+Handy calculator accepting _**big**_ numbers.
+
+[source,python]
+----
+>>> 123**102
+1480203295629928329479981685264795353307343870806030995772572
+2520911504293200426656620631029510757221888460901007696324336
+8523439832863460122438964502975350810638854406478502135611850
+1231433129L
+----
+
+----
+>>> (9j+2)**2
+(-77+36j)
+----
+
+----
+>>> hex(0x55^0b11111111)
+'0xaa'
+----
+
+== Hello World
+
+Create a file `helloWorld.py`
+
+[source,python]
+----
+#!/usr/bin/env python
+print("Hello World!")
+----
+
+Command-line on any os :
+----
+$ /<path>/<to>/python helloWorld.py
+----
+
+Launch on Mac/Linux :
+----
+$ /usr/bin/env python --version # test your shebang
+$ chmod +x ./helloWorld.py      # make executable
+$ ./helloWorld.py
+----
+== Strings
+
+* A string is a piece of text delimited by quotes `"` or `'`
+* Quotes can be single, doubled or tripled: `' '' ''' " "" """`
+* A delimiter encloses another: `'He said: "Hello"'`
+* Triples can hold multiple lines
+
+[source,python]
+----
+message = """ This is a  very very very very  very very
+very very very very very very long multi-line string.
+                         Victor Hugo         """
+----
+
+=== Quiz
+
+What delimiters should be used to quote:
+
+`He said: "This doesn't look right!"`
+
+ifdef::answers[]
+=== Answer
+
+Wrong:
+
+* `'He said: "This doesn't look right!"'`
+* `"He said: "This doesn't look right!""`
+* `""He said: "This doesn't look right!"""`
+* `"""He said: "This doesn't look right!""""`
+
+Good:
+
+* `''He said: "This doesn't look right!"''`
+* `'''He said: "This doesn't look right!"'''`
+* `""He said: "This doesn't look right!" ""`
+endif::[]
+
+== String Slicing
+
+|===
+| | Expression   | Result
+
+|concatenate  | `'ABC'+'DEF'*2`| `'ABCDEFDEF'`
+|1st, 2nd     | `'ABCDEF'[0],'ABCDEF'[1]`| `('A','B')`
+|last, before | `'ABCDEF'[-1],'ABCDEF'[-2]`| `('F','E')`
+|2nd to 3rd   | `'ABCDEF'[1:3]`|`'BC'`
+|2nd to 2nd   | `'ABCDEF'[1:2]`|`'B'`
+|omit *first* | `'ABCDEF'[:2]` | `'AB'`
+|omit *last*  | `'ABCDEF'[-2:]`| `'EF'`
+|always full  | `'ABCDEF'[:i]+'ABCDEF'[i:]`| `'ABCDEF'`
+|existence    | `'DE' in 'ABCDEF'` | `True`
+|===
+
+&nbsp;
+
+TIP: Think of `string[i:j]` as `string[i:j[`
+
+
+=== Quiz
+
+
+Start with...
+
+`>>> name="Jack Sparrow"`
+
+And form a 10-charater string containing the first and last letter of name,
+repeating 5 times.
+
+ifdef::answers[]
+=== Answer
+
+[.scale200]
+----
+>>> (name[0]+name[-1])*5
+JwJwJwJwJw
+----
+endif::[]
+
+== String Formatting
+
+The % operator: `string%{key:value,...}` or `string%(value,...)`
+
+[source,python]
+----
+>>> "There are %d %s %s(s)"%(2,"red","banana")
+'There are 2 red banana(s)'
+----
+
+[source,python]
+----
+>>> "%(boy)s runs fast. %(boy)s is %(age)d"%{"boy":"Bob","age":12}
+'Bob runs fast. Bob is 12'
+----
+
+The f-string: `f"string{expression}"`
+[source,python]
+----
+>>> x=12
+>>> f"The square of {x} is {x**2}."
+'The square of 12 is 144'
+----
+
+=== Quiz
+
+Find `x="????"` so that:
+
+`>>> x%(9,8,7,6,5,4,3,2,1,0)`
+
+`'9\->8\->7\->6\->5\->4\->3\->2\->1\->0\-> boom!'`
+
+ifdef::answers[]
+=== Answer
+
+`>>> x='%d\->'*10+' boom!'`
+
+`>>> x%(9,8,7,6,5,4,3,2,1,0)`
+
+`'9\->8\->7\->6\->5\->4\->3\->2\->1\->0\-> boom!'`
+endif::[]
+
+== Lists
+
+Use square brackets...
+
+[source, python]
+----
+mylist = ['AB','Bob',23,0x34,"Z"]
+team   = ['Rocket',
+          'Starlord', # Trailing coma ok
+        # "Groot",    # Commenting out doesn't break syntax
+          ]
+----
+
+[cols="2,4,4"]
+|===
+|   |Expression                | Result
+
+| concatenate  |`['AB','CD']+['EF']*2`   |`['AB','CD','EF','EF']`
+| indexing     |`['AB','CD','EF'][0]`    |`'AB'`
+| slicing      |`['AB','CD','EF'][1:3]`  |`['CD','EF']`
+| existence    |`'CD' in ['AB','CD']`    |`True`
+| add          |`['AB','CD'].append(12)` | `['AB','CD',12]`
+| remove       |`['AB','CD',12].pop()`   | `['AB','CD']`
+|===
+
+
+=== Quiz ?
+
+`[1,2,3,4,5][2:2]`
+
+ifdef::answers[]
+=== Answer:
+
+* `[1,2,3,4,5][2:2]` = `[]` = empty list
+* Same goes for `mylist[i:j]` whenever  `i` &ge; `j`
+endif::[]
+
+== Dictionaries
+
+Use curly braces...
+
+[source,python]
+----
+mydict = { 'price'  : 12,
+           'type'   : 'Table',
+           'options': ["red","blue"],
+           'dim'    : {"W":90,"L":180,"H":72},
+            }
+----
+
+Operations
+
+[cols="1,4,1"]
+|===
+|              | Expression              | Result
+
+|indexing | `{'A':4,'B':'C'}['A']` | `4`
+|existence | `'C' in {'A':4,'B':'C'}` | `False`
+|update | `d={'A':4,'B':'C'}; d['A']=7` | `{'A':7,'B':'C'}`
+|add | `d['Z']=0` | `{'A':7,'B':'C','Z':0}`
+|remove | `{'A':7,'B':'C'}.pop('B')` | `{'A':7}`
+|===
+
+=== Quiz
+
+[source,python]
+----
+mydict = { 'price'  : 12,
+           'type'   : 'Table',
+           'options': ["red","blue"],
+           'dim'    : {"W":90,"L":180,"H":72},
+            }
+----
+
+`mydict['options'][1][-2]`
+
+`mydict['dim']['H']-mydict['price']`
+
+ifdef::answers[]
+=== Answer
+
+`mydict['options'][1][-2]`
+
+[source,python]
+----
+mydict['options']        = ["red","blue"]
+mydict['options'][1]     =        "blue"
+mydict['options'][1][-2] =          "u"
+----
+
+`mydict['dim'][H]-mydict['price']`
+
+[source,python]
+----
+mydict['dim']           = {"W":90,"L":180,"H":72}
+mydict['dim']["H"]      = 72
+mydict['price']         = 12
+                        -----
+                        = 60
+----
+endif::[]
+
+== Introspection
+
+Everything is an object
+
+[source,python]
+----
+>>> dir('ABCDEF')
+['__add__', '__class__', '__contains__', '__delattr__',
+...
+'lower', 'lstrip', 'partition', 'replace', 'rfind',
+'strip', 'swapcase', 'title', 'translate', 'upper']
+----
+
+Methods
+
+[source,python]
+----
+>>> 'ABCDEF'.lower
+<built-in method lower of str object at 0xb742b8e0>
+>>> 'ABCDEF'.lower()
+"abcdef"
+----
+
+Doc
+
+[source,python]
+----
+>>> help("ABCDEF".split)
+split(...)
+    S.split([sep [,maxsplit]]) -> list of strings
+----
+
+=== Quiz
+
+`msg="These are not the droids you're looking for."`
+
+Use `dir(msg)`, and find a method to substitute *droids* with *burgers*.
+
+ifdef::answers[]
+=== Answer
+----
+>>> dir(msg)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__',
+'__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__',
+'__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__',
+'__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__',
+'__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__',
+'__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize',
+'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find',
+'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal',
+'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace',
+'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans',
+'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit',
+'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title',
+'translate', 'upper', 'zfill']
+
+>>> msg.replace("droids","burgers")
+"These are not the burgers you're looking for."
+----
+endif::[]
+
+
+== Usual methods
+
+|===
+| Expression | Result
+
+| `'A BC DEF\n'.strip()` | `'A BC DEF'`
+|  `"ABCDEFABCDEF".find("EF")` | `'4'`
+| `'ABCDEFABCDEF'.replace('A','aa')` | `'aaBCDEFaaBCDEF'`
+|  `'A BC DEF'.split()`  | `['A','BC','DEF']`
+| `'-'.join(['A','BC','DEF'])`  | `'A-BC-DEF'`
+|  `l=[6,3,1,2]; l.sort()`  |  `[1,2,3,6]`
+|  `l=[6,3,1,2]; l.reverse()` | `[2,1,3,6]`
+| `{'A':12,'B':'4'}.keys()` | `['A','B']`
+| `{'A':12,'B':'4'}.values()` | `['12','4']`
+|===
+
+== Indentation
+
+Indentation is part of the syntax
+
+[source,python]
+----
+if True:            #    <- First statement is in column 0
+    print("L")      # x  <- Choose any indentation
+    print("O")      # x  <- Stick with it for current block
+    if True:        # x  <- And again
+        print("V")  #    <- New block... new choice
+                    #    <- Empty line any time
+    print("E")      # x  <- Back to first choice
+  print("Cheese")   #    <- Syntax Error
+----
+
+Any choice is possible, but :
+
+* please **avoid tabs**, as they depend on tool configurations
+
+* consider multiple of **4 spaces**
+
+== Conditions
+
+[source,python]
+----
+if   color is "yellow"                : guess="banana"  # simple
+elif color=="" and basket=="empty"    : guess="no more" # and
+elif color in ["red","green"]         : guess="apple"   # or
+elif color is not "orange"            : guess="yogurt"  # not
+elif type(color)==type(1) and color>4 : guess="coconut" # shielded
+else                                  : guess="orange"
+----
+
+[source,python]
+----
+if 1:  # Easy to comment in/out
+   print("debug stuff")
+----
+
+[source,python]
+----
+if A:
+  if B: myfunc(1)
+  else: myfunc(2)
+else:
+  if B: myfunc(3)
+  else: pass      # Optional, but good to know
+----
+
+== Loops
+
+Iterate...
+[source,python]
+----
+>>> for char in "YMCA": print(char,end=" ")
+Y M C A
+
+>>> for word in ["I","am","Ironman"]: print(word,end=" ")
+I am Ironman
+
+>>> for x in range(10): print(x,end=" ")
+0 1 2 3 4 5 6 7 8 9
+
+>>> for man    in phonebook: print man,phonebook[man]
+>>> for cow    in field: ...
+>>> for child  in classRoom: ...
+>>> for widget in gui: ...
+----
+
+Do not count!
+[source,python]
+----
+for i in range(0,len(myList)): # Oh no!
+  print(myList[i],end=" ")
+----
+
+=== Quiz 1
+
+Look at `help()` on `range` and display the 10 first multiples of 7
+
+
+ifdef::answers[]
+=== Answer 1
+
+[source,bash]
+----
+>>> help(range)
+range(...)
+    range(stop) -> list of integers
+    range(start, stop[, step]) -> list of integers
+
+Return a list containing an arithmetic progression of integers.
+range(i, j) returns [i, i+1, i+2, ..., j-1]; start (!) defaults to 0.
+When step is given, it specifies the increment (or decrement).
+For example, range(4) returns [0, 1, 2, 3]. The end point is omitted!
+These are exactly the valid indices for a list of 4 elements.
+----
+
+[source,python]
+----
+>>> range(0,7*10,7)
+[0, 7, 14, 21, 28, 35, 42, 49, 56, 63]
+----
+endif::[]
+
+=== Quiz 2
+
+Display the phone book, sorted alphabetically.
+
+```
+phonebook = {"Bob":1234,"Alice":3456,"Charly":4567}
+```
+
+ifdef::answers[]
+=== Answer 2
+
+[source,python]
+----
+phonebook = {"Bob":1234,"Alice":3456,"Charly":4567}
+names = phonebook.keys()
+names.sort()
+for name in names:
+   print name,phonebook[name]
+----
+
+[source,python]
+----
+Alice 3456
+Bob 1234
+Charly 4567
+----
+endif::[]
+
+== Functions
+
+[source,python]
+----
+def myfunc(x,y,verbose=False):
+    result = x+y
+    if verbose:
+        print "Info: %r+%r = %r"%(x,y,result)
+    return(result)
+myfunc("SAY"," CHEESE",verbose=True)
+myfunc(23,17) # verbose is optional
+----
+
+[source,python]
+----
+Info: 'SAY'+' CHEESE' = 'SAY CHEESE'
+'SAY CHEESE'
+40
+----
+
+First class citizen
+
+[source,python]
+----
+>>> myvar=myfunc
+>>> callable(myvar)
+True
+>>> myvar(1,2)
+----
+
+=== Quiz
+
+Are methods callable ?
+
+ifdef::answers[]
+=== Answer
+
+[source,python]
+----
+>>> callable("ABC".split)
+True
+----
+endif::[]
+
+== Parsing
+Text files In
+
+[source,python]
+----
+for line in file("myFile.txt"):
+    print("Reading:",line,end="") # \n included in line
+----
+
+Text files In/out
+
+[source,python]
+----
+fo = open("myFileOut.txt","w")
+for line in open("myFile.txt"):
+    fo.write("Reading:",line) # write() doesn't append \n
+fo.close()
+----
+
+=== Parsing Cont'd
+
+Web pages
+
+[source,python]
+----
+import requests
+page=requests.get("http://www.google.com")
+for line in page.text:
+    print("Reading:",line,end='')
+----
+
+JSON files
+
+[source,python]
+----
+import json
+mydict = json.load(open("myfile.json"))
+----
+
+Compressed files
+
+[source,python]
+----
+import gzip
+for line in gzip.open('myfile.txt.gz', 'rb'):
+   print(line,end='')
+----
+
+== Modules
+
+Imported only once
+
+[source,python]
+----
+import math
+import math # <- This is skipped
+----
+
+File structure
+
+[source,python]
+----
+import thepack.subpack.thismodule
+----
+
+[source,python]
+----
+thepack/ # searched 1st in "." then $path,$PYTHONPATH,python install
+       /__init__.py
+       /subpack/
+               /__init__.py
+               /thismodule.py
+----
+
+Run time setup
+
+[source,python]
+----
+import os,sys
+sys.path.insert(0,os.environ["MYLIBDIR"])
+import mylib
+print mylib.__file__ # Be sure of what is imported
+----
+
+=== Darkside
+
+[source,python]
+----
+from thismodule import *
+from thatmodule import *
+...
+awesomeFunction() # Where is it from ?
+----
+
+____
+*Luke* : What's in there?
+
+*Yoda* : What you only with you take.
+____
+
+=== Quiz
+
+Find out how many modules are installed ?
+
+`>>> help("modules")`
+
+ifdef::answers[]
+=== Answer
+
+Many!
+The exact number depends mostly on the distribution.
+endif::[]
+
+== Embedding doc
+
+[source,python]
+----
+def greetings(name="You"):
+   """
+   If the first statement is in fact a string....
+   It is considered as a comment, and will be forwarded by
+   documentation utilities ( pydoc, epydoc, sphinx )
+   """
+   print("Hello",name)
+----
+
+Query
+[source]
+----
+>>> help(greetings)
+greetings(name='You')
+    If the first statement is in fact a string....
+    It is considered as a comment, and will be forwarded by
+    documentation utilities ( pydoc, epydoc, sphinx )
+----
+
+Publish
+[source,bash]
+----
+$ python -m pydoc -w greetings # produces greetings.html
+----
+
+== Embedding test
+
+`mymodule.py`:
+
+[source,python]
+----
+def func(x,y): return (x+y)
+
+if __name__=="__main__": # <- false if current code is imported
+  print "selftest..."
+  assert func(1,2)==3
+  assert func(4,2)==6
+  print "PASS"
+----
+
+Usage
+
+[source,python]
+----
+import mymodule
+mymodule.func(4,5) # <- Access via name space
+----
+
+Testing
+
+[source,bash]
+----
+$ python mymodule.py
+selftest
+PASS
+----
+
+== File system
+`import os,shutil,glob`
+
+|===
+| bash             | python
+
+|`ls mydir/*.txt`  | `glob.glob("mydir/*.txt")`
+|`[[ -e myfile ]] &&`  | `if os.path.exists("myfile"):`
+|`[[ -d mydir ]] &&`   | `if os.path.isdir("mydir"):`
+|`mkdir mydir`     | `os.mkdir("mydir")`
+|`rm -rf mydir`    | `shutil.rmtree("mydir")`
+|`cp $src $dst`    | `shutil.copyfile(src,dst)`
+|`$(basename $mypath)` | `os.path.basename(mypath)`
+|`$(dirname $mypath)` | `os.path.dirname(mypath)`
+|`pwd`             | `os.getcwd()`
+|===
+
+== Command line arguments
+
+`import sys`
+
+[source,python]
+----
+print "Script:",sys.argv[0]
+
+for arg in sys.argv[1:]: print "Argument:",arg
+
+verbose =  "-v" in sys.argv
+----
+
+[source,bash]
+----
+>> python thisFile.py A BC D
+Script: thisFile.py
+Argument: A
+Argument: BC
+Argument: D
+----
+
+Exit Code
+
+|===
+| Possible      | Better              | after execution
+
+| `sys.exit(0)` | `raise SystemExit`  | `echo $status` &rarr; `0`
+| `sys.exit(1)` | `raise SystemError` | `echo $status` &rarr; `1`
+|===
+
+== Better Command line arguments
+
+[source,python]
+----
+include::cli.py[]
+----
+
+* Arguments with dash are optional others mandatory.
+
+* Help switch `-h` is automatic.
+
+=== Quiz
+
+1. Try the example above, and experiment with different arguments
+2. Continue the program as claimed in the help.
+3. Extend the program with an option to consider all files in a folder.
+
+
+== Regular Expressions
+
+|===
+| Regexp | String | Matches?
+
+|`r"Hel*o."` | `Helllllo!` | icon:check[]
+|`r"Hel*o."` | `Heo!` | icon:check[]
+|`r"Hel*o."` | `Ho!` | icon:ban[]
+|`r"[dc][oa][gt]"` | `dog` | icon:check[]
+|`r"[dc][oa][gt]"` | `cat` | icon:check[]
+|`r"[dc][oa][gt]"` | `pig` | icon:ban[]
+|===
+
+* The symbols `*` and `[]` have special meanings in this context.
+* These symbols are *metacharaters*
+
+
+== Metacharacters
+
+Most common ones...
+
+[cols="1,3,1,2"]
+|===
+|`.`     |Any single character | `?`     |Repeat `0` or `1`
+|`$`     |End of line          | `*`     |Repeat &ge; `0`
+|`^`     |Start of line        | `+`     |Repeat &ge; `1`
+|`*?`,`+?`,`??` | Non-greedy `*,+,?`     |`[abc]` | Character `a`, `b` or `c`
+|`[a-d]` |Character `a`,`b`,`c` or `d` | `[^abc]` | Not `a`,`b` or `c`
+|`\d`    |A digit `[0-9]`                |`\D`| Not a digit
+|`\s`    |A whitespace  `[ \t\n\r\f\v]`  |`\S`| Not a white space
+|`\w`    |An alphanum `[a-zA-Z0-9_]` |`\W`| Not an alphanum
+|`(`...`)` | Capture delimiters | `&1` | Back reference
+|===
+
+=== Usage
+
+|===
+| *Expression*               | *Result*
+
+|`re.search(r'B.D'       ,'ABCDEF')` | True, **contains** BCD
+|`re.match( r'AB'        ,'ABCDEF')`  | True, **starts with** AB
+|`re.findall(r'[AD].','ABCDEF')` |`['AB','DE']`
+|`re.search(r'(A.)CD(.)F','ABCDEF').groups()` | `('AB','E')`
+|`re.sub(r'A.','ab','ABCABC')` | `'abCabC'`
+|===
+
+=== Quiz
+
+Find couples in...
+
+[source,python]
+----
+msg = "Size1=32,Size3=54,Size12:128; Size7 = 87"
+----
+
+ifdef::answers[]
+=== Answer
+
+[source,python]
+----
+re.findall("Size(\d*)[ =:]+(\d*)[,;]*",msg)
+----
+
+[source,python]
+----
+[('1', '32'), ('3', '54'), ('12', '128'), ('7', '87')]
+----
+endif::[]
+
+== Assignment
+
+You work at the embassy and 2 planes just crashed in the night. You've been
+given list of missing people from both planes.
+
+[cols="1a,5a"]
+|===
+| link:./samples/plane1.json[plane1.json,window=_blank]
+a|
+----
+include::plane1.json.cut[]
+...
+----
+| link:./samples/plane2.csv[plane2.csv,window=_blank]
+a|
+----
+include::plane2.csv.cut[]
+...
+----
+|===
+
+Your goal is to report to the ambassador:
+
+* The total number of victims per country in descending order.
+* The total list of victims under 18.
+
+
+=== Scoring
+
+* `1/20` Use of English only
+* `1/20` Use of Standard Library only
+* `6/20` Command line interface that includes meaningful `--help`
+* `6/20` Creation and use of test case(s) to verify the program
+* `5/20` Accurate reporting
+* `1/20` Ascii-art histogram for the country list
+
+
+ifdef::answers[]
+=== Answer
+
+[source,python]
+----
+include::lab_planes.py[]
+----
