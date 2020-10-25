@@ -68,7 +68,7 @@ Both editors give the same experience on Windows, Linux, and Mac.
 Python 3.7.9 (default, Aug 31 2020, 17:10:11)
 [GCC 4.7.3] on linux2
 Type "help", "copyright", "credits" or "license" for more info.
->>> print 1+2
+>>> print(1+2)
 3
 >>> exit()
 ----
@@ -118,7 +118,7 @@ $ ./helloWorld.py
 == Strings
 
 * A string is a piece of text delimited by quotes `"` or `'`
-* Quotes can be single, doubled or tripled: `' '' ''' " "" """`
+* Quotes can be single or triple: `' " ''' """`
 * A delimiter encloses another: `'He said: "Hello"'`
 * Triples can hold multiple lines
 
@@ -135,22 +135,17 @@ What delimiters should be used to quote:
 
 `He said: "This doesn't look right!"`
 
-ifdef::answers[]
 === Answer
 
 Wrong:
 
 * `'He said: "This doesn't look right!"'`
 * `"He said: "This doesn't look right!""`
-* `""He said: "This doesn't look right!"""`
 * `"""He said: "This doesn't look right!""""`
 
 Good:
 
-* `''He said: "This doesn't look right!"''`
 * `'''He said: "This doesn't look right!"'''`
-* `""He said: "This doesn't look right!" ""`
-endif::[]
 
 == String Slicing
 
@@ -183,7 +178,6 @@ Start with...
 And form a 10-charater string containing the first and last letter of name,
 repeating 5 times.
 
-ifdef::answers[]
 === Answer
 
 [.scale200]
@@ -191,7 +185,6 @@ ifdef::answers[]
 >>> (name[0]+name[-1])*5
 JwJwJwJwJw
 ----
-endif::[]
 
 == String Formatting
 
@@ -225,7 +218,6 @@ Find `x="????"` so that:
 
 `'9\->8\->7\->6\->5\->4\->3\->2\->1\->0\-> boom!'`
 
-ifdef::answers[]
 === Answer
 
 `>>> x='%d\->'*10+' boom!'`
@@ -233,7 +225,6 @@ ifdef::answers[]
 `>>> x%(9,8,7,6,5,4,3,2,1,0)`
 
 `'9\->8\->7\->6\->5\->4\->3\->2\->1\->0\-> boom!'`
-endif::[]
 
 == Lists
 
@@ -265,12 +256,10 @@ team   = ['Rocket',
 
 `[1,2,3,4,5][2:2]`
 
-ifdef::answers[]
 === Answer:
 
 * `[1,2,3,4,5][2:2]` = `[]` = empty list
 * Same goes for `mylist[i:j]` whenever  `i` &ge; `j`
-endif::[]
 
 == Dictionaries
 
@@ -313,7 +302,6 @@ mydict = { 'price'  : 12,
 
 `mydict['dim']['H']-mydict['price']`
 
-ifdef::answers[]
 === Answer
 
 `mydict['options'][1][-2]`
@@ -335,7 +323,6 @@ mydict['price']         = 12
                         -----
                         = 60
 ----
-endif::[]
 
 == Introspection
 
@@ -375,7 +362,6 @@ split(...)
 
 Use `dir(msg)`, and find a method to substitute *droids* with *burgers*.
 
-ifdef::answers[]
 === Answer
 ----
 >>> dir(msg)
@@ -396,7 +382,6 @@ ifdef::answers[]
 >>> msg.replace("droids","burgers")
 "These are not the burgers you're looking for."
 ----
-endif::[]
 
 
 == Usual methods
@@ -479,7 +464,7 @@ I am Ironman
 >>> for x in range(10): print(x,end=" ")
 0 1 2 3 4 5 6 7 8 9
 
->>> for man    in phonebook: print man,phonebook[man]
+>>> for man    in phonebook: print(man,phonebook[man])
 >>> for cow    in field: ...
 >>> for child  in classRoom: ...
 >>> for widget in gui: ...
@@ -497,7 +482,6 @@ for i in range(0,len(myList)): # Oh no!
 Look at `help()` on `range` and display the 10 first multiples of 7
 
 
-ifdef::answers[]
 === Answer 1
 
 [source,bash]
@@ -519,7 +503,6 @@ These are exactly the valid indices for a list of 4 elements.
 >>> range(0,7*10,7)
 [0, 7, 14, 21, 28, 35, 42, 49, 56, 63]
 ----
-endif::[]
 
 === Quiz 2
 
@@ -530,7 +513,6 @@ Display the phone book, sorted alphabetically.
 phonebook = {"Bob":1234,"Alice":3456,"Charly":4567}
 ----
 
-ifdef::answers[]
 === Answer 2
 
 [source,python]
@@ -539,7 +521,7 @@ phonebook = {"Bob":1234,"Alice":3456,"Charly":4567}
 names = phonebook.keys()
 names.sort()
 for name in names:
-   print name,phonebook[name]
+   print(name,phonebook[name])
 ----
 
 [source,python]
@@ -548,7 +530,6 @@ Alice 3456
 Bob 1234
 Charly 4567
 ----
-endif::[]
 
 == Functions
 
@@ -557,7 +538,7 @@ endif::[]
 def myfunc(x,y,verbose=False):
     result = x+y
     if verbose:
-        print "Info: %r+%r = %r"%(x,y,result)
+        print("Info: %r+%r = %r"%(x,y,result))
     return(result)
 myfunc("SAY"," CHEESE",verbose=True)
 myfunc(23,17) # verbose is optional
@@ -584,7 +565,6 @@ True
 
 Are methods callable ?
 
-ifdef::answers[]
 === Answer
 
 [source,python]
@@ -592,14 +572,13 @@ ifdef::answers[]
 >>> callable("ABC".split)
 True
 ----
-endif::[]
 
 == Parsing
 Text files In
 
 [source,python]
 ----
-for line in file("myFile.txt"):
+for line in open("myFile.txt"):
     print("Reading:",line,end="") # \n included in line
 ----
 
@@ -675,7 +654,7 @@ Run time setup
 import os,sys
 sys.path.insert(0,os.environ["MYLIBDIR"])
 import mylib
-print mylib.__file__ # Be sure of what is imported
+print(mylib.__file__) # Be sure of what is imported
 ----
 
 === Darkside
@@ -745,10 +724,10 @@ $ python -m pydoc -w greetings # produces greetings.html
 def func(x,y): return (x+y)
 
 if __name__=="__main__": # <- false if current code is imported
-  print "selftest..."
+  print("selftest...")
   assert func(1,2)==3
   assert func(4,2)==6
-  print "PASS"
+  print("PASS")
 ----
 
 Usage
@@ -791,9 +770,9 @@ PASS
 
 [source,python]
 ----
-print "Script:",sys.argv[0]
+print("Script:",sys.argv[0])
 
-for arg in sys.argv[1:]: print "Argument:",arg
+for arg in sys.argv[1:]: print("Argument:",arg)
 
 verbose =  "-v" in sys.argv
 ----

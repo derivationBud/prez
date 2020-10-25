@@ -164,7 +164,7 @@ If you don&#8217;t have one yet please install any of these suggestions:</p></di
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">Python 3.7.9 (default, Aug 31 2020, 17:10:11)
 [GCC 4.7.3] on linux2
 Type "help", "copyright", "credits" or "license" for more info.
-&gt;&gt;&gt; print 1+2
+&gt;&gt;&gt; print(1+2)
 3
 &gt;&gt;&gt; exit()</code></pre></div></div>
 <div class="paragraph"><p>Handy calculator accepting <em><strong>big</strong></em> numbers.</p></div>
@@ -186,26 +186,32 @@ print("Hello World!")</code></pre></div></div>
 <div class="listingblock"><div class="content"><pre>$ /usr/bin/env python --version # test your shebang
 $ chmod +x ./helloWorld.py      # make executable
 $ ./helloWorld.py</pre></div></div></div></section>
-<section><section id="_strings"><h2>Strings</h2><div class="slide-content"><div class="ulist"><ul><li><p>A string is a piece of text delimited by quotes <code>"</code> or <code>'</code></p></li><li><p>Quotes can be single, doubled or tripled: <code>' '' ''' " "" """</code></p></li><li><p>A delimiter encloses another: <code>'He said: "Hello"'</code></p></li><li><p>Triples can hold multiple lines</p></li></ul></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">message = """ This is a  very very very very  very very
+<section><section id="_strings"><h2>Strings</h2><div class="slide-content"><div class="ulist"><ul><li><p>A string is a piece of text delimited by quotes <code>"</code> or <code>'</code></p></li><li><p>Quotes can be single or triple: <code>' " ''' """</code></p></li><li><p>A delimiter encloses another: <code>'He said: "Hello"'</code></p></li><li><p>Triples can hold multiple lines</p></li></ul></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">message = """ This is a  very very very very  very very
 very very very very very very long multi-line string.
                          Victor Hugo         """</code></pre></div></div></div></section><section id="_quiz"><h2>Quiz</h2><div class="slide-content"><div class="paragraph"><p>What delimiters should be used to quote:</p></div>
-<div class="paragraph"><p><code>He said: "This doesn&#8217;t look right!"</code></p></div></div></section></section>
+<div class="paragraph"><p><code>He said: "This doesn&#8217;t look right!"</code></p></div></div></section><section id="_answer"><h2>Answer</h2><div class="slide-content"><div class="paragraph"><p>Wrong:</p></div>
+<div class="ulist"><ul><li><p><code>'He said: "This doesn&#8217;t look right!"'</code></p></li><li><p><code>"He said: "This doesn&#8217;t look right!""</code></p></li><li><p><code>"""He said: "This doesn&#8217;t look right!""""</code></p></li></ul></div>
+<div class="paragraph"><p>Good:</p></div>
+<div class="ulist"><ul><li><p><code>'''He said: "This doesn&#8217;t look right!"'''</code></p></li></ul></div></div></section></section>
 <section><section id="_string_slicing"><h2>String Slicing</h2><div class="slide-content"><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><thead><tr><th class="tableblock halign-left valign-top"></th><th class="tableblock halign-left valign-top">Expression</th><th class="tableblock halign-left valign-top">Result</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">concatenate</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABC'+'DEF'*2</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEFDEF'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">1st, 2nd</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEF'[0],'ABCDEF'[1]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>('A','B')</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">last, before</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEF'[-1],'ABCDEF'[-2]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>('F','E')</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">2nd to 3rd</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEF'[1:3]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'BC'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">2nd to 2nd</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEF'[1:2]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'B'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">omit <strong>first</strong></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEF'[:2]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'AB'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">omit <strong>last</strong></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEF'[-2:]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'EF'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">always full</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEF'[:i]+'ABCDEF'[i:]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEF'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">existence</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'DE' in 'ABCDEF'</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>True</code></p></td></tr></table><div class="paragraph"><p>&nbsp;</p></div><div class="admonitionblock tip"><table><tr><td class="icon"><i class="fa fa-lightbulb-o" title="Tip"></i></td><td class="content">Think of <code>string[i:j]</code> as <code>string[i:j[</code></td></tr></table></div></div></section><section id="_quiz_2"><h2>Quiz</h2><div class="slide-content"><div class="paragraph"><p>Start with&#8230;&#8203;</p></div>
 <div class="paragraph"><p><code>&gt;&gt;&gt; name="Jack Sparrow"</code></p></div>
 <div class="paragraph"><p>And form a 10-charater string containing the first and last letter of name,
-repeating 5 times.</p></div></div></section></section>
+repeating 5 times.</p></div></div></section><section id="_answer_2"><h2>Answer</h2><div class="slide-content"><div class="listingblock scale200"><div class="content"><pre>&gt;&gt;&gt; (name[0]+name[-1])*5
+JwJwJwJwJw</pre></div></div></div></section></section>
 <section><section id="_string_formatting"><h2>String Formatting</h2><div class="slide-content"><div class="paragraph"><p>The % operator: <code>string%{key:value,&#8230;&#8203;}</code> or <code>string%(value,&#8230;&#8203;)</code></p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; "There are %d %s %s(s)"%(2,"red","banana")
 'There are 2 red banana(s)'</code></pre></div></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; "%(boy)s runs fast. %(boy)s is %(age)d"%{"boy":"Bob","age":12}
 'Bob runs fast. Bob is 12'</code></pre></div></div><div class="paragraph"><p>The f-string: <code>f"string{expression}"</code></p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; x=12
 &gt;&gt;&gt; f"The square of {x} is {x**2}."
 'The square of 12 is 144'</code></pre></div></div></div></section><section id="_quiz_3"><h2>Quiz</h2><div class="slide-content"><div class="paragraph"><p>Find <code>x="????"</code> so that:</p></div>
 <div class="paragraph"><p><code>&gt;&gt;&gt; x%(9,8,7,6,5,4,3,2,1,0)</code></p></div>
+<div class="paragraph"><p><code>'9-&gt;8-&gt;7-&gt;6-&gt;5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;0-&gt; boom!'</code></p></div></div></section><section id="_answer_3"><h2>Answer</h2><div class="slide-content"><div class="paragraph"><p><code>&gt;&gt;&gt; x='%d-&gt;'*10+' boom!'</code></p></div>
+<div class="paragraph"><p><code>&gt;&gt;&gt; x%(9,8,7,6,5,4,3,2,1,0)</code></p></div>
 <div class="paragraph"><p><code>'9-&gt;8-&gt;7-&gt;6-&gt;5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;0-&gt; boom!'</code></p></div></div></section></section>
 <section><section id="_lists"><h2>Lists</h2><div class="slide-content"><div class="paragraph"><p>Use square brackets&#8230;&#8203;</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">mylist = ['AB','Bob',23,0x34,"Z"]
 team   = ['Rocket',
           'Starlord', # Trailing coma ok
         # "Groot",    # Commenting out doesn't break syntax
-          ]</code></pre></div></div><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:20%"><col style="width:40%"><col style="width:40%"></colgroup><thead><tr><th class="tableblock halign-left valign-top"></th><th class="tableblock halign-left valign-top">Expression</th><th class="tableblock halign-left valign-top">Result</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">concatenate</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD']+['EF']*2</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD','EF','EF']</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">indexing</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD','EF'][0]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'AB'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">slicing</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD','EF'][1:3]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['CD','EF']</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">existence</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'CD' in ['AB','CD']</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>True</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">add</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD'].append(12)</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD',12]</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">remove</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD',12].pop()</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD']</code></p></td></tr></table></div></section><section id="_quiz_4"><h2>Quiz ?</h2><div class="slide-content"><div class="paragraph"><p><code>[1,2,3,4,5][2:2]</code></p></div></div></section></section>
+          ]</code></pre></div></div><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:20%"><col style="width:40%"><col style="width:40%"></colgroup><thead><tr><th class="tableblock halign-left valign-top"></th><th class="tableblock halign-left valign-top">Expression</th><th class="tableblock halign-left valign-top">Result</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock">concatenate</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD']+['EF']*2</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD','EF','EF']</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">indexing</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD','EF'][0]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'AB'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">slicing</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD','EF'][1:3]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['CD','EF']</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">existence</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'CD' in ['AB','CD']</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>True</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">add</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD'].append(12)</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD',12]</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock">remove</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD',12].pop()</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','CD']</code></p></td></tr></table></div></section><section id="_quiz_4"><h2>Quiz ?</h2><div class="slide-content"><div class="paragraph"><p><code>[1,2,3,4,5][2:2]</code></p></div></div></section><section id="_answer_4"><h2>Answer:</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>[1,2,3,4,5][2:2]</code> = <code>[]</code> = empty list</p></li><li><p>Same goes for <code>mylist[i:j]</code> whenever  <code>i</code> &ge; <code>j</code></p></li></ul></div></div></section></section>
 <section><section id="_dictionaries"><h2>Dictionaries</h2><div class="slide-content"><div class="paragraph"><p>Use curly braces&#8230;&#8203;</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">mydict = { 'price'  : 12,
            'type'   : 'Table',
            'options': ["red","blue"],
@@ -216,7 +222,16 @@ team   = ['Rocket',
            'dim'    : {"W":90,"L":180,"H":72},
             }</code></pre></div></div>
 <div class="paragraph"><p><code>mydict['options'][1][-2]</code></p></div>
-<div class="paragraph"><p><code>mydict['dim']['H']-mydict['price']</code></p></div></div></section></section>
+<div class="paragraph"><p><code>mydict['dim']['H']-mydict['price']</code></p></div></div></section><section id="_answer_5"><h2>Answer</h2><div class="slide-content"><div class="paragraph"><p><code>mydict['options'][1][-2]</code></p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">mydict['options']        = ["red","blue"]
+mydict['options'][1]     =        "blue"
+mydict['options'][1][-2] =          "u"</code></pre></div></div>
+<div class="paragraph"><p><code>mydict['dim'][H]-mydict['price']</code></p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">mydict['dim']           = {"W":90,"L":180,"H":72}
+mydict['dim']["H"]      = 72
+mydict['price']         = 12
+                        -----
+                        = 60</code></pre></div></div></div></section></section>
 <section><section id="_introspection"><h2>Introspection</h2><div class="slide-content"><div class="paragraph"><p>Everything is an object</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; dir('ABCDEF')
 ['__add__', '__class__', '__contains__', '__delattr__',
 ...
@@ -227,7 +242,23 @@ team   = ['Rocket',
 "abcdef"</code></pre></div></div><div class="paragraph"><p>Doc</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; help("ABCDEF".split)
 split(...)
     S.split([sep [,maxsplit]]) -&gt; list of strings</code></pre></div></div></div></section><section id="_quiz_6"><h2>Quiz</h2><div class="slide-content"><div class="paragraph"><p><code>msg="These are not the droids you&#8217;re looking for."</code></p></div>
-<div class="paragraph"><p>Use <code>dir(msg)</code>, and find a method to substitute <strong>droids</strong> with <strong>burgers</strong>.</p></div></div></section></section>
+<div class="paragraph"><p>Use <code>dir(msg)</code>, and find a method to substitute <strong>droids</strong> with <strong>burgers</strong>.</p></div></div></section><section id="_answer_6"><h2>Answer</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre>&gt;&gt;&gt; dir(msg)
+['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__',
+'__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__',
+'__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__',
+'__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__',
+'__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__',
+'__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize',
+'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find',
+'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isascii', 'isdecimal',
+'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace',
+'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans',
+'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit',
+'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title',
+'translate', 'upper', 'zfill']
+
+&gt;&gt;&gt; msg.replace("droids","burgers")
+"These are not the burgers you're looking for."</pre></div></div></div></section></section>
 <section id="_usual_methods"><h2>Usual methods</h2><div class="slide-content"><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Expression</th><th class="tableblock halign-left valign-top">Result</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'A BC DEF\n'.strip()</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'A BC DEF'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>"ABCDEFABCDEF".find("EF")</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'4'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'ABCDEFABCDEF'.replace('A','aa')</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'aaBCDEFaaBCDEF'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'A BC DEF'.split()</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['A','BC','DEF']</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'-'.join(['A','BC','DEF'])</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'A-BC-DEF'</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>l=[6,3,1,2]; l.sort()</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>[1,2,3,6]</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>l=[6,3,1,2]; l.reverse()</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>[2,1,3,6]</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>{'A':12,'B':'4'}.keys()</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['A','B']</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>{'A':12,'B':'4'}.values()</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['12','4']</code></p></td></tr></table></div></section>
 <section id="_indentation"><h2>Indentation</h2><div class="slide-content"><div class="paragraph"><p>Indentation is part of the syntax</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">if True:            #    &lt;- First statement is in column 0
@@ -263,16 +294,34 @@ I am Ironman
 &gt;&gt;&gt; for x in range(10): print(x,end=" ")
 0 1 2 3 4 5 6 7 8 9
 
-&gt;&gt;&gt; for man    in phonebook: print man,phonebook[man]
+&gt;&gt;&gt; for man    in phonebook: print(man,phonebook[man])
 &gt;&gt;&gt; for cow    in field: ...
 &gt;&gt;&gt; for child  in classRoom: ...
 &gt;&gt;&gt; for widget in gui: ...</code></pre></div></div><div class="paragraph"><p>Do not count!</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">for i in range(0,len(myList)): # Oh no!
-  print(myList[i],end=" ")</code></pre></div></div></div></section><section id="_quiz_1"><h2>Quiz 1</h2><div class="slide-content"><div class="paragraph"><p>Look at <code>help()</code> on <code>range</code> and display the 10 first multiples of 7</p></div></div></section><section id="_quiz_2_2"><h2>Quiz 2</h2><div class="slide-content"><div class="paragraph"><p>Display the phone book, sorted alphabetically.</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">phonebook = {"Bob":1234,"Alice":3456,"Charly":4567}</code></pre></div></div></div></section></section>
+  print(myList[i],end=" ")</code></pre></div></div></div></section><section id="_quiz_1"><h2>Quiz 1</h2><div class="slide-content"><div class="paragraph"><p>Look at <code>help()</code> on <code>range</code> and display the 10 first multiples of 7</p></div></div></section><section id="_answer_1"><h2>Answer 1</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs" data-noescape="true">&gt;&gt;&gt; help(range)
+range(...)
+    range(stop) -&gt; list of integers
+    range(start, stop[, step]) -&gt; list of integers
+
+Return a list containing an arithmetic progression of integers.
+range(i, j) returns [i, i+1, i+2, ..., j-1]; start (!) defaults to 0.
+When step is given, it specifies the increment (or decrement).
+For example, range(4) returns [0, 1, 2, 3]. The end point is omitted!
+These are exactly the valid indices for a list of 4 elements.</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; range(0,7*10,7)
+[0, 7, 14, 21, 28, 35, 42, 49, 56, 63]</code></pre></div></div></div></section><section id="_quiz_2_2"><h2>Quiz 2</h2><div class="slide-content"><div class="paragraph"><p>Display the phone book, sorted alphabetically.</p></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">phonebook = {"Bob":1234,"Alice":3456,"Charly":4567}</code></pre></div></div></div></section><section id="_answer_2_2"><h2>Answer 2</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">phonebook = {"Bob":1234,"Alice":3456,"Charly":4567}
+names = phonebook.keys()
+names.sort()
+for name in names:
+   print(name,phonebook[name])</code></pre></div></div>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">Alice 3456
+Bob 1234
+Charly 4567</code></pre></div></div></div></section></section>
 <section><section id="_functions"><h2>Functions</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">def myfunc(x,y,verbose=False):
     result = x+y
     if verbose:
-        print "Info: %r+%r = %r"%(x,y,result)
+        print("Info: %r+%r = %r"%(x,y,result))
     return(result)
 myfunc("SAY"," CHEESE",verbose=True)
 myfunc(23,17) # verbose is optional</code></pre></div></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">Info: 'SAY'+' CHEESE' = 'SAY CHEESE'
@@ -280,8 +329,9 @@ myfunc(23,17) # verbose is optional</code></pre></div></div><div class="listingb
 40</code></pre></div></div><div class="paragraph"><p>First class citizen</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; myvar=myfunc
 &gt;&gt;&gt; callable(myvar)
 True
-&gt;&gt;&gt; myvar(1,2)</code></pre></div></div></div></section><section id="_quiz_7"><h2>Quiz</h2><div class="slide-content"><div class="paragraph"><p>Are methods callable ?</p></div></div></section></section>
-<section><section id="_parsing"><h2>Parsing</h2><div class="slide-content"><div class="paragraph"><p>Text files In</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">for line in file("myFile.txt"):
+&gt;&gt;&gt; myvar(1,2)</code></pre></div></div></div></section><section id="_quiz_7"><h2>Quiz</h2><div class="slide-content"><div class="paragraph"><p>Are methods callable ?</p></div></div></section><section id="_answer_7"><h2>Answer</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">&gt;&gt;&gt; callable("ABC".split)
+True</code></pre></div></div></div></section></section>
+<section><section id="_parsing"><h2>Parsing</h2><div class="slide-content"><div class="paragraph"><p>Text files In</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">for line in open("myFile.txt"):
     print("Reading:",line,end="") # \n included in line</code></pre></div></div><div class="paragraph"><p>Text files In/out</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">fo = open("myFileOut.txt","w")
 for line in open("myFile.txt"):
     fo.write("Reading:",line) # write() doesn't append \n
@@ -305,7 +355,7 @@ import math # &lt;- This is skipped</code></pre></div></div><div class="paragrap
                /thismodule.py</code></pre></div></div><div class="paragraph"><p>Run time setup</p></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">import os,sys
 sys.path.insert(0,os.environ["MYLIBDIR"])
 import mylib
-print mylib.__file__ # Be sure of what is imported</code></pre></div></div></div></section><section id="_darkside"><h2>Darkside</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">from thismodule import *
+print(mylib.__file__) # Be sure of what is imported</code></pre></div></div></div></section><section id="_darkside"><h2>Darkside</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">from thismodule import *
 from thatmodule import *
 ...
 awesomeFunction() # Where is it from ?</code></pre></div></div>
@@ -331,10 +381,10 @@ greetings(name='You')
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">def func(x,y): return (x+y)
 
 if __name__=="__main__": # &lt;- false if current code is imported
-  print "selftest..."
+  print("selftest...")
   assert func(1,2)==3
   assert func(4,2)==6
-  print "PASS"</code></pre></div></div>
+  print("PASS")</code></pre></div></div>
 <div class="paragraph"><p>Usage</p></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">import mymodule
 mymodule.func(4,5) # &lt;- Access via name space</code></pre></div></div>
@@ -345,9 +395,9 @@ PASS</code></pre></div></div></div></section>
 <section id="_file_system"><h2>File system</h2><div class="slide-content"><div class="paragraph"><p><code>import os,shutil,glob</code></p></div>
 <table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">bash</th><th class="tableblock halign-left valign-top">python</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>ls mydir/*.txt</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>glob.glob("mydir/*.txt")</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>[[ -e myfile ]] &amp;&amp;</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>if os.path.exists("myfile"):</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>[[ -d mydir ]] &amp;&amp;</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>if os.path.isdir("mydir"):</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>mkdir mydir</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>os.mkdir("mydir")</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm -rf mydir</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>shutil.rmtree("mydir")</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>cp $src $dst</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>shutil.copyfile(src,dst)</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>$(basename $mypath)</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>os.path.basename(mypath)</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>$(dirname $mypath)</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>os.path.dirname(mypath)</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>pwd</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>os.getcwd()</code></p></td></tr></table></div></section>
 <section id="_command_line_arguments"><h2>Command line arguments</h2><div class="slide-content"><div class="paragraph"><p><code>import sys</code></p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">print "Script:",sys.argv[0]
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">print("Script:",sys.argv[0])
 
-for arg in sys.argv[1:]: print "Argument:",arg
+for arg in sys.argv[1:]: print("Argument:",arg)
 
 verbose =  "-v" in sys.argv</code></pre></div></div>
 <div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs" data-noescape="true">&gt;&gt; python thisFile.py A BC D
