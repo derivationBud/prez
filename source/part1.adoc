@@ -868,7 +868,7 @@ Find couples in...
 msg = "Size1=32,Size3=54,Size12:128; Size7 = 87"
 ----
 
-ifdef::answers[]
+ifdef::answers2[]
 === Answer
 
 [source,python]
@@ -879,6 +879,67 @@ re.findall("Size(\d*)[ =:]+(\d*)[,;]*",msg)
 [source,python]
 ----
 [('1', '32'), ('3', '54'), ('12', '128'), ('7', '87')]
+----
+endif::[]
+
+== Challenge 1
+
+You work in a door mat manufacturing company. And for any given odd number N>4,
+your goal is to print out the design:
+
+* The door map is a rectangle of `N` rows by `3N` columns.
+* The word `WELCOME` is written in the center.
+* The design is geometric as in the examples given for `N=9` and `N=5`
+
+[source]
+----
+------------.|.------------          ------.|.------
+---------.|..|..|.---------          ---.|..|..|.---
+------.|..|..|..|..|.------          ----WELCOME----
+---.|..|..|..|..|..|..|.---          ---.|..|..|.---
+----------WELCOME----------          ------.|.------
+---.|..|..|..|..|..|..|.---
+------.|..|..|..|..|.------
+---------.|..|..|.---------
+------------.|.------------
+----
+
+ifdef::answers2[]
+=== Answer
+
+[source,python]
+----
+include::doormats.py[]
+----
+endif::[]
+
+== Challenge 2
+
+You bought a list of credit cards numbers on the dark net matching with the bank
+name Green-Paradise. Your teammate has already tagged the numbers as valid or
+not. But he is asking you to verify again.
+[cols="1a,5a"]
+|===
+| link:./samples/greenparadise.json[greenparadise.json,window=_blank]
+a|
+----
+include::greenparadise.json.cut[]
+...
+----
+|===
+
+A valid credit card from Green-Paradise Bank has the following characteristics:
+
+* It must contain exactly 16 digits , starting with 4,5 or 6.
+* It may have digits in groups of 4, separated by one hyphen "-".
+* It must NOT have 4 or more consecutive repeated digits.
+
+ifdef::answers2[]
+=== Answer
+
+[source,python]
+----
+include::greenparadise.py[]
 ----
 endif::[]
 
@@ -919,10 +980,11 @@ Your goal is to report to the ambassador:
 * `1/20` Ascii-art histogram for the country list
 
 
-ifdef::answers[]
+ifdef::answers2[]
 === Answer
 
 [source,python]
 ----
 include::lab_planes.py[]
 ----
+endif::[]
