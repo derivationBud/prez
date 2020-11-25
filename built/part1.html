@@ -427,8 +427,7 @@ if args["v"]:
 <section id="_regular_expressions"><h2>Regular Expressions</h2><div class="slide-content"><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:33.3333%"><col style="width:33.3333%"><col style="width:33.3334%"></colgroup><thead><tr><th class="tableblock halign-left valign-top">Regexp</th><th class="tableblock halign-left valign-top">String</th><th class="tableblock halign-left valign-top">Matches?</th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>r"Hel*o."</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>Helllllo!</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>r"Hel*o."</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>Heo!</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>r"Hel*o."</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>Ho!</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>r"[dc][oa][gt]"</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>dog</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>r"[dc][oa][gt]"</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>cat</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-check"></i></span></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>r"[dc][oa][gt]"</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>pig</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><span class="icon"><i class="fa fa-ban"></i></span></p></td></tr></table>
 <div class="ulist"><ul><li><p>The symbols <code>*</code> and <code>[]</code> have special meanings in this context.</p></li><li><p>These symbols are <strong>metacharaters</strong></p></li></ul></div></div></section>
 <section><section id="_metacharacters"><h2>Metacharacters</h2><div class="slide-content"><div class="paragraph"><p>Most common ones&#8230;&#8203;</p></div><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:14.2857%"><col style="width:42.8571%"><col style="width:14.2857%"><col style="width:28.5715%"></colgroup><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>.</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Any single character</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>?</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Repeat <code>0</code> or <code>1</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>$</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">End of line</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Repeat &ge; <code>0</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>^</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Start of line</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>+</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Repeat &ge; <code>1</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>*?</code>,<code>+?</code>,<code>??</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Non-greedy <code>*,+,?</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>[abc]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Character <code>a</code>, <code>b</code> or <code>c</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>[a-d]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Character <code>a</code>,<code>b</code>,<code>c</code> or <code>d</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>[^abc]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Not <code>a</code>,<code>b</code> or <code>c</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>\d</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">A digit <code>[0-9]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>\D</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Not a digit</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>\s</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">A whitespace  <code>[ \t\n\r\f\v]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>\S</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Not a white space</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>\w</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">An alphanum <code>[a-zA-Z0-9_]</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>\W</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Not an alphanum</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>(</code>&#8230;&#8203;<code>)</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Capture delimiters</p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>&amp;1</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">Back reference</p></td></tr></table></div></section><section id="_usage"><h2>Usage</h2><div class="slide-content"><table class="tableblock frame-all grid-all" style="width:100%"><colgroup><col style="width:50%"><col style="width:50%"></colgroup><thead><tr><th class="tableblock halign-left valign-top"><strong>Expression</strong></th><th class="tableblock halign-left valign-top"><strong>Result</strong></th></tr><tbody><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>re.search(r&#8217;B.D'       ,'ABCDEF')</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True, <strong>contains</strong> BCD</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>re.match( r&#8217;AB'        ,'ABCDEF')</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock">True, <strong>starts with</strong> AB</p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>re.findall(r'[AD].','ABCDEF')</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>['AB','DE']</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>re.search(r'(A.)CD(.)F','ABCDEF').groups()</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>('AB','E')</code></p></td></tr><tr><td class="tableblock halign-left valign-top"><p class="tableblock"><code>re.sub(r&#8217;A.','ab','ABCABC')</code></p></td><td class="tableblock halign-left valign-top"><p class="tableblock"><code>'abCabC'</code></p></td></tr></table></div></section><section id="_quiz_10"><h2>Quiz</h2><div class="slide-content"><div class="paragraph"><p>Find couples in&#8230;&#8203;</p></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">msg = "Size1=32,Size3=54,Size12:128; Size7 = 87"</code></pre></div></div></div></section><section id="_answer_9"><h2>Answer</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">re.findall("Size(\d*)[ =:]+(\d*)[,;]*",msg)</code></pre></div></div>
-<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">[('1', '32'), ('3', '54'), ('12', '128'), ('7', '87')]</code></pre></div></div></div></section></section>
+<div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">msg = "Size1=32,Size3=54,Size12:128; Size7 = 87"</code></pre></div></div></div></section></section>
 <section><section id="_challenge_1"><h2>Challenge 1</h2><div class="slide-content"><div class="paragraph"><p>You work in a door mat manufacturing company. And for any given odd number N&gt;4,
 your goal is to print out the design:</p></div><div class="ulist"><ul><li><p>The door map is a rectangle of <code>N</code> rows by <code>3N</code> columns.</p></li><li><p>The word <code>WELCOME</code> is written in the center.</p></li><li><p>The design is geometric as in the examples given for <code>N=9</code> and <code>N=5</code></p></li></ul></div><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code class="language-none hljs" data-noescape="true">------------.|.------------          ------.|.------
 ---------.|..|..|.---------          ---.|..|..|.---
@@ -438,7 +437,7 @@ your goal is to print out the design:</p></div><div class="ulist"><ul><li><p>The
 ---.|..|..|..|..|..|..|.---
 ------.|..|..|..|..|.------
 ---------.|..|..|.---------
-------------.|.------------</code></pre></div></div></div></section><section id="_answer_10"><h2>Answer</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">answer=input("What size of door mat do you want ? ")
+------------.|.------------</code></pre></div></div></div></section><section id="_answer_9"><h2>Answer</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">answer=input("What size of door mat do you want ? ")
 N=int(answer) # Must be integer
 assert N%2==1 # Must be odd
 
@@ -458,7 +457,7 @@ not. But he is asking you to verify again.</p></div><table class="tableblock fra
  { "card": "589425209976-7927", "valid": true },
 ...
  { "card": "12343455", "valid": false },
-...</pre></div></div></div></td></tr></table><div class="paragraph"><p>A valid credit card from Green-Paradise Bank has the following characteristics:</p></div><div class="ulist"><ul><li><p>It must contain exactly 16 digits , starting with 4,5 or 6.</p></li><li><p>It may have digits in groups of 4, separated by one hyphen "-".</p></li><li><p>It must NOT have 4 or more consecutive repeated digits.</p></li></ul></div></div></section><section id="_answer_11"><h2>Answer</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">import re,json
+...</pre></div></div></div></td></tr></table><div class="paragraph"><p>A valid credit card from Green-Paradise Bank has the following characteristics:</p></div><div class="ulist"><ul><li><p>It must contain exactly 16 digits , starting with 4,5 or 6.</p></li><li><p>It may have digits in groups of 4, separated by one hyphen "-".</p></li><li><p>It must NOT have 4 or more consecutive repeated digits.</p></li></ul></div></div></section><section id="_answer_10"><h2>Answer</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">import re,json
 def isValid(number):
     match=re.match(r'[456]\d{3}-?\d{4}-?\d{4}-?\d{4}$',number)
     if not match: return False
@@ -479,67 +478,7 @@ given list of missing people from both planes.</p></div><table class="tableblock
 {"Country":"China","Age":83,"Name":"Modestia Ygo"},
 ...</pre></div></div></div></td></tr><tr><td class="tableblock halign-left valign-top"><div><div class="paragraph"><p><a href="./samples/plane2.csv" target="_blank">plane2.csv</a></p></div></div></td><td class="tableblock halign-left valign-top"><div><div class="listingblock"><div class="content"><pre>Indonesia,79,Annamarie Aizikovitch
 China,68,Bary Seller
-...</pre></div></div></div></td></tr></table><div class="paragraph"><p>Your goal is to report to the ambassador:</p></div><div class="ulist"><ul><li><p>The total number of victims per country in descending order.</p></li><li><p>The total list of victims under 18.</p></li></ul></div></div></section><section id="_scoring"><h2>Scoring</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>1/20</code> Use of English only</p></li><li><p><code>1/20</code> Use of Standard Library only</p></li><li><p><code>6/20</code> Command line interface that includes meaningful <code>--help</code></p></li><li><p><code>6/20</code> Creation and use of test case(s) to verify the program</p></li><li><p><code>5/20</code> Accurate reporting</p></li><li><p><code>1/20</code> Ascii-art histogram for the country list</p></li></ul></div></div></section><section id="_answer_12"><h2>Answer</h2><div class="slide-content"><div class="listingblock"><div class="content"><pre class="highlightjs highlight"><code data-lang="python" class="language-python hljs" data-noescape="true">import json,csv,argparse
-
-def crunch(people):
-    report={ "stats":{}, "children":[] }
-    for victim in people:
-        if victim["Country"] not in report["stats"]:
-            report["stats"][victim["Country"]]=0
-        report["stats"][victim["Country"]]+=1
-        if int(victim["Age"])&lt;18:
-            report["children"].append(victim["Name"])
-    return report
-
-def main(args):
-    # Collect Data
-    people=[]
-    for filename in args["listing"]:
-        if args["v"]:
-            print(f"Processing {filename}...")
-        if ".json" in filename:
-            people += json.load(open(filename))
-        elif ".csv" in filename:
-            for row in csv.reader(open(filename)):
-                people.append({"Country":row[0],"Age":row[1],"Name":row[2]})
-    # Data Analysis
-    report=crunch(people)
-    # Display report
-    print("Victims per country:")
-    for country,count in report["stats"].items():
-        print(f"{country:40} {count:3} {'*'*count}")
-    print("Victims under 18:")
-    for child in report["children"]:
-        print(child)
-
-def test():
-    report = crunch( [
-        {"Country" : "Nintendo", "Age" : 35, "Name" : "Mario"},
-        {"Country" : "Nintendo", "Age" : 30, "Name" : "Luigi"},
-        {"Country" : "Nintendo", "Age" : 18, "Name" : "Peach"},
-        {"Country" : "Nintendo", "Age" : 17, "Name" : "Zelda"},
-        {"Country" : "Hogwarts", "Age" :  7, "Name" : "Harry"},
-        {"Country" : "Hogwarts", "Age" :  7, "Name" : "Ron"  },
-        ])
-    assert len(report["children"])==3
-    assert report["stats"]["Nintendo"]==4
-    assert report["stats"]["Hogwarts"]==2
-    assert "Ron"       in report["children"]
-    assert "Harry"     in report["children"]
-    assert "Zelda"     in report["children"]
-    assert "Mario" not in report["children"]
-    print("PASS")
-
-if __name__=="__main__":
-    parser = argparse.ArgumentParser(description=("Missing people analysis"))
-    parser.add_argument('listing',nargs='*',
-        help="Missing people input File (*.json|csv).")
-    parser.add_argument('-v',action='store_true', help="Verbose")
-    parser.add_argument('-t',action='store_true', help="Run Selftest")
-    args = vars(parser.parse_args())
-
-    if args["t"]: test()
-    else:         main(args)</code></pre></div></div></div></section></section></div></div><script src="reveal.js/js/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
+...</pre></div></div></div></td></tr></table><div class="paragraph"><p>Your goal is to report to the ambassador:</p></div><div class="ulist"><ul><li><p>The total number of victims per country in descending order.</p></li><li><p>The total list of victims under 18.</p></li></ul></div></div></section><section id="_scoring"><h2>Scoring</h2><div class="slide-content"><div class="ulist"><ul><li><p><code>1/20</code> Use of English only</p></li><li><p><code>1/20</code> Use of Standard Library only</p></li><li><p><code>6/20</code> Command line interface that includes meaningful <code>--help</code></p></li><li><p><code>6/20</code> Creation and use of test case(s) to verify the program</p></li><li><p><code>5/20</code> Accurate reporting</p></li><li><p><code>1/20</code> Ascii-art histogram for the country list</p></li></ul></div></div></section></section></div></div><script src="reveal.js/js/reveal.js"></script><script>Array.prototype.slice.call(document.querySelectorAll('.slides section')).forEach(function(slide) {
   if (slide.getAttribute('data-background-color')) return;
   // user needs to explicitly say he wants CSS color to override otherwise we might break custom css or theme (#226)
   if (!(slide.classList.contains('canvas') || slide.classList.contains('background'))) return;

@@ -904,7 +904,7 @@ your goal is to print out the design:
 ------------.|.------------
 ----
 
-ifdef::answers2[]
+ifdef::answers[]
 === Answer
 
 [source,python]
@@ -934,7 +934,7 @@ A valid credit card from Green-Paradise Bank has the following characteristics:
 * It may have digits in groups of 4, separated by one hyphen "-".
 * It must NOT have 4 or more consecutive repeated digits.
 
-ifdef::answers2[]
+ifdef::answers[]
 === Answer
 
 [source,python]
