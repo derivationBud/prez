@@ -868,7 +868,7 @@ Find couples in...
 msg = "Size1=32,Size3=54,Size12:128; Size7 = 87"
 ----
 
-ifdef::answers2[]
+ifdef::answers[]
 === Answer
 
 [source,python]
