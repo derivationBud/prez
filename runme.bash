@@ -4,5 +4,5 @@ sass \
     -I built/reveal.js/css \
     --no-source-map
 
-asciidoctor-revealjs source/part1.adoc -D built -a answers
-#asciidoctor-revealjs source/part1.adoc -D built -a answers2 -a answers
+#asciidoctor-revealjs source/part1.adoc -D built -a answers
+asciidoctor-revealjs source/part1.adoc -D built -a answers2 -a answers
